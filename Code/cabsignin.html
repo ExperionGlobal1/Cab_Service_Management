@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cab Sign In</title>
+    <link rel="stylesheet" href="cabsign.css" type="text/css" />
+</head>
+
+<body>
+    <video autoplay muted loop plays-inline class="my-video">
+        <source src="videos/tunnel.mp4" type="video/mp4">
+
+    </video>
+
+
+    <div class="top1">
+        <div class="top2">
+            <h2><a href="home.html" style="text-decoration: none; color: black;"><img src="images/Cablogo1.png"
+                        style="height:60px; width: 60px; border-radius: 20px;background-color:blue;"></a></h2>
+        </div>
+        <div class="top3">
+            <div class="button"><a href="cabbook.html" style="text-decoration:none; ">Booking</a></div>
+            <!-- <div class="button" >Contact Us</div>   -->
+        </div>
+    </div>
+    <div class="box">
+        <div class="box1">
+        </div>
+        <div class="box2">
+            <form name="signinform" method="post" action="cabbook.html" class="box3" onsubmit="validate(event)">
+                <p style="font-size: 36px; text-align: center;"><b>Sign in</b></p>
+                <label for="Email"><b>Username:</b></label><br>
+                <input type="text" id="email" name="email" placeholder="me@example.com"><br />
+                <label for="Password"> <b>Password:</b></label><br>
+                <input type="password" id="password" name="Password" placeholder="Password" class="psw"><br />
+                <label for="Confirm Password"> <b>Confirm Password:</b></label><br>
+                <input type="password" id="confpassword" name="conPassword" placeholder="Confirm Password" class="psw">
+                <br/>
+
+                <h4 id="error" style="color: red;"></h4>
+                <table>
+                    <tr><button type="submit" class="btn" style="margin-left:40px ;" >Sign In</button>
+                        <button type="submit" class="btn" style="margin-left:10px ;"><a href="cabsignup.html"
+                                style="text-decoration:none;">New User</a></button>
+                    </tr>
+                </table>
+                <label style="margin-left:100px ;">Forgot <a href="#"
+                        style="color: rgb(255, 242, 0);">password?</a></label>
+
+            </form>
+        </div>
+    </div>
+    <script>
+        function validate(e) {
+            let error = document.getElementById('error')
+            let email = document.getElementById('email').value;
+            let password = document.getElementById('password').value;
+            let confpassword = document.getElementById('confpassword').value;
+
+
+            let database = {
+                email: "user123@gmail.com",
+                password: "pass123",
+                confpassword: "pass123"
+            }
+            if (email == database.email & password == database.password & confpassword == database.confpassword) {
+                console.log('success')
+            }
+            else {
+                error.innerHTML = "username or password is wrong"
+                e.preventDefault()
+            }
+        }
+    </script>
+</body>
+
+</html>
