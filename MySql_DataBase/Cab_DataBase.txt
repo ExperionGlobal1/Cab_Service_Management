@@ -1,0 +1,153 @@
+                                                            CAB_DataBase
+*****************************************************************************************************************************
+create table cab(
+cab_no  int primary key auto_increment,
+cab_name varchar(150) not null,
+cab_descrpt varchar(150) not null,
+cab_totalseating int not null,
+etc varchar(150));
+
+mysql> use cab
+Database changed
+mysql> desc cab;
++------------------+--------------+------+-----+---------+----------------+
+| Field            | Type         | Null | Key | Default | Extra          |
++------------------+--------------+------+-----+---------+----------------+
+| cab_no           | int          | NO   | PRI | NULL    | auto_increment |
+| cab_name         | varchar(150) | NO   |     | NULL    |                |
+| cab_descrpt      | varchar(150) | NO   |     | NULL    |                |
+| cab_totalseating | int          | NO   |     | NULL    |                |
+| etc              | varchar(150) | YES  |     | NULL    |                |
++------------------+--------------+------+-----+---------+----------------+
+5 rows in set (0.00 sec)
+
+create table customer(
+customer_id int primary key auto_increment,
+c_name varchar(50) not null,
+user_name varchar(50) not null,
+email varchar(50) not null,
+password varchar(50) not null,
+mobile int not null,
+address varchar(100),
+dob date not null);
+
+mysql> desc customer;
++-------------+--------------+------+-----+---------+----------------+
+| Field       | Type         | Null | Key | Default | Extra          |
++-------------+--------------+------+-----+---------+----------------+
+| customer_id | int          | NO   | PRI | NULL    | auto_increment |
+| c_name      | varchar(50)  | NO   |     | NULL    |                |
+| user_name   | varchar(50)  | NO   |     | NULL    |                |
+| email       | varchar(50)  | NO   |     | NULL    |                |
+| password    | varchar(50)  | NO   |     | NULL    |                |
+| mobile      | int          | NO   |     | NULL    |                |
+| address     | varchar(100) | YES  |     | NULL    |                |
+| dob         | date         | NO   |     | NULL    |                |
++-------------+--------------+------+-----+---------+----------------+
+8 rows in set (0.00 sec)
+
+create table rider(
+rider_id int primary key auto_increment,
+rider_name varchar(50) not null,
+rider_address varchar(150) not null,
+cab_no int,
+constraint FK_rider_cab_number foreign key
+(cab_no) references cab(cab_no ) on delete set null,
+cab_type varchar(50) not null);
+
+mysql> desc rider;
++---------------+--------------+------+-----+---------+----------------+
+| Field         | Type         | Null | Key | Default | Extra          |
++---------------+--------------+------+-----+---------+----------------+
+| rider_id      | int          | NO   | PRI | NULL    | auto_increment |
+| rider_name    | varchar(50)  | NO   |     | NULL    |                |
+| rider_address | varchar(150) | NO   |     | NULL    |                |
+| cab_no        | int          | YES  | MUL | NULL    |                |
+| cab_type      | varchar(50)  | NO   |     | NULL    |                |
++---------------+--------------+------+-----+---------+----------------+
+5 rows in set (0.00 sec)
+
+create  table cab_schedule (
+schedule_id int primary key auto_increment,
+pickup varchar(150) not null,
+drop_loc  varchar(150) not null,
+ride_date date,
+ride_time time ,
+cost int not null,
+cab_number int ,
+constraint FK_cab_schedule_cab_number foreign key
+(cab_number) references cab(cab_no ) on delete set null);
+
+mysql> desc cab_schedule;
++-------------+--------------+------+-----+---------+----------------+
+| Field       | Type         | Null | Key | Default | Extra          |
++-------------+--------------+------+-----+---------+----------------+
+| schedule_id | int          | NO   | PRI | NULL    | auto_increment |
+| pickup      | varchar(150) | NO   |     | NULL    |                |
+| drop_loc    | varchar(150) | NO   |     | NULL    |                |
+| ride_date   | date         | YES  |     | NULL    |                |
+| ride_time   | time         | YES  |     | NULL    |                |
+| cost        | int          | NO   |     | NULL    |                |
+| cab_number  | int          | YES  | MUL | NULL    |                |
++-------------+--------------+------+-----+---------+----------------+
+7 rows in set (0.00 sec)
+
+create table bookride(
+ride_otp  int primary key auto_increment,
+date_of_booking int not null,
+date_of_ride date,
+pickup varchar(50),
+drop_loc varchar(50),
+ride_time time,
+cab_number int,
+constraint FK_bookride_cabtnumber foreign key
+(cab_number) references cab(cab_no ) on delete set null,
+customer_id int,
+constraint FK_bookride_customerid foreign key
+(customer_id) references customer(customer_id ) on delete set null);
+
+mysql> desc bookride;
++-----------------+-------------+------+-----+---------+----------------+
+| Field           | Type        | Null | Key | Default | Extra          |
++-----------------+-------------+------+-----+---------+----------------+
+| ride_otp        | int         | NO   | PRI | NULL    | auto_increment |
+| date_of_booking | int         | NO   |     | NULL    |                |
+| date_of_ride    | date        | YES  |     | NULL    |                |
+| pickup          | varchar(50) | YES  |     | NULL    |                |
+| drop_loc        | varchar(50) | YES  |     | NULL    |                |
+| ride_time       | time        | YES  |     | NULL    |                |
+| cab_number      | int         | YES  | MUL | NULL    |                |
+| customer_id     | int         | YES  | MUL | NULL    |                |
++-----------------+-------------+------+-----+---------+----------------+
+8 rows in set (0.00 sec)
+
+create table driver_detail(
+Driver_id int primary key auto_increment,
+D_name varchar(50) not null,
+user_name varchar(50) not null,
+email varchar(50) not null,
+password varchar(50) not null,
+Mobile int not null,
+Address varchar(100),
+DOB date not null,
+Experience varchar(100) not null,
+Driver_License_No varchar(60) not null,
+License_Expiry date);
+
+mysql> desc driver_detail;
++-------------------+--------------+------+-----+---------+----------------+
+| Field             | Type         | Null | Key | Default | Extra          |
++-------------------+--------------+------+-----+---------+----------------+
+| driver_id         | int          | NO   | PRI | NULL    | auto_increment |
+| D_name            | varchar(50)  | NO   |     | NULL    |                |
+| user_name         | varchar(50)  | NO   |     | NULL    |                |
+| email             | varchar(50)  | NO   |     | NULL    |                |
+| password          | varchar(50)  | NO   |     | NULL    |                |
+| mobile            | int          | NO   |     | NULL    |                |
+| address           | varchar(100) | YES  |     | NULL    |                |
+| DOB               | date         | NO   |     | NULL    |                |
+| Experience        | varchar(100) | NO   |     | NULL    |                |
+| Driver_License_No | varchar(60)  | NO   |     | NULL    |                |
+| License_Expiry    | date         | YES  |     | NULL    |                |
++-------------------+--------------+------+-----+---------+----------------+
+11 rows in set (0.00 sec)
