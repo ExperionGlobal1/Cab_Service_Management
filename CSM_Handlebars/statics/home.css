@@ -1,0 +1,65 @@
+body{
+    margin: 0;
+    padding: 0;
+    background-color:yellow;
+}
+.one{
+    z-index: 1;
+    color: white;
+    display: flex;
+    justify-content: center;
+    padding-top: 10%;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-size: 70pt;
+    animation-name: example;
+    animation-duration: 4s;
+    animation-iteration-count: infinite;   
+}
+@keyframes example{
+    0%{color: red;}
+    25%{color: yellow;}
+    50% {color: white;}
+    75%{color: green;}
+    100%{color: red;}
+}
+.row
+    {
+        font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+        font-size: large;
+        color:black;
+        /* text-align: center; */
+        /* margin-bottom:100px; */
+        margin-top:120px;
+       
+    }
+.home{
+        font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+        font-size: x-large;
+        color:red;
+        text-decoration: none;
+        margin-left: 10px ;  
+        margin-top: -100vh;
+   }
+   .Login{
+    font-size: x-large;
+    /* font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif; */
+     color: blue;
+     text-align: center;
+     height: 20vh;
+    width: 100vw;
+    /* font-size: x-large; */
+    font-family: Georgia, 'Times New Roman', Times, serif;
+
+   }
+   .my-video{ 
+    position: relative;
+    right: 0;
+    bottom: 0;
+    width: 100vw;
+    height: 100vh;
+    object-fit: cover;
+    z-index: -999;
+
+   }
+   
+
