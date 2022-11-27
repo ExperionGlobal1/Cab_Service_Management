@@ -1,0 +1,34 @@
+<div class="top1">
+    <div class="top2">
+        <h2><a href="/" style="text-decoration: none; color: black;"><img
+                    src="/static/images/Cablogo1.png"
+                    style="height:60px; width: 60px; border-radius: 20px;background-color:blue;"></a></h2>
+    </div>
+    <div class="top3">
+        <div class="button"><a href="/booking" style="text-decoration:none; ">Booking</a></div>
+
+    </div>
+</div>
+<div class="box">
+    <div class="box2">
+        <form name="signinform" method="post" class="box3">
+            <p style="font-size: 36px; text-align: center;"><b>Sign in</b></p>
+
+            <label for="email"><b>Email id </b></label><br />
+            <input type="text" placeholder="Enter email id" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$"
+                name="email" id="email" class="form-control" required><br />
+            <label for="Password"> <b>Password</b></label><br>
+            <input type="password" id="Password" name="Password" placeholder="Password" minlength="8" maxlength="25"
+                class="psw" class="form-control" required><br />
+            <h4 id="error" style="color: red;"></h4>
+            <table>
+                <tr><button type="submit" class="btn" style="margin-left:40px ;">Sign In</button>
+                    <button type="submit" class="btn" style="margin-left:40px ;"><a href="/userdetail"
+                            style="text-decoration:none;">New User</a></button>
+                </tr>
+            </table>
+            <label style="margin-left:100px ;">Forgot <a href="#" style="color: rgb(255, 242, 0);">password?</a></label>
+
+        </form>
+    </div>
+</div>

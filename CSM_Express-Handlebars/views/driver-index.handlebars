@@ -1,0 +1,46 @@
+<div class="top1">
+    <div class="top2">
+        <h2><a href="/driver" style="text-decoration: none; color: black;"><img src="/static/images/Cablogo1.png"
+                    style="height:60px; width: 60px; border-radius: 20px;"></a></h2>
+    </div>
+</div>
+<div class="text">
+    <h1 class="text-center" style="text-align: center;">Driver  Details!</h1>
+</div>
+
+<div class="container">
+    <a href="/driver" class="btn btn-primary">+Add New Driver Deatails! </a>
+    <table class="table table-striped mt-4" style="color:rgb(217, 226, 230) ;">
+        <tr style="color:rgb(244, 11, 11) ;">
+            <th>Id</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Mobile</th>
+            <th>Address</th>
+            <th>DOB</th>
+            <th>Experience</th>
+            <th>DL_No</th>
+            <th>Exp_DL_Date</th>
+        </tr>
+        {{#each data}}
+        <tr>
+            <td>{{this.dataValues.id}}</td>
+            <td>{{this.dataValues.Name}}</td>
+            <td>{{this.dataValues.Email}}</td>
+            <td>{{this.dataValues.Mobile}}</td>
+            <td>{{this.dataValues.Address}}</td>
+            <td>{{this.dataValues.DOB}}</td>
+            <td>{{this.dataValues.Experience}}</td>
+            <td>{{this.dataValues.DL}}</td>
+            <td>{{this.dataValues.Exp_DL}}</td>
+            <td>
+                <a href="/driverUpdate/{{this.dataValues.id}}">Edit</a> |
+                <a href="/driverDelete/{{this.dataValues.id}}" class="text-danger" onclick="return confirm('Are you sure you want to delete this')">Delete</a>
+            </td>
+        </tr>
+        {{/each}}
+    </table>
+    <p class="text-end" style="color:rgb(217, 226, 230) ;">You are logged in as: 
+        <b>{{identity.firstName}} {{identity.lastName}}</b>
+    </p>
+</div>
