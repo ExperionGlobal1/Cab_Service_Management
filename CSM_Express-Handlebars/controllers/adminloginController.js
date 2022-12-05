@@ -1,26 +1,25 @@
-const Cab = require('../models/userdetail');
+const Cab = require('../models/admindetail');
 
 module.exports.login = (req, res, next) => {
-    res.render('cabsignin');
+    res.render('admin-login');
 }
 module.exports.loginPost = async (req, res, next) => {
-    const { email, Password } = req.body;
+    const { email, password } = req.body;
     const userFromDb = await Cab.findOne({
-        where: { email: email, password: Password }
+        where: { email: email, password: password }
     
     });
     
-   
     if (userFromDb == null) {
-        return res.render('signup-create', { message: 'No user with this email or password was found.' })
+        return res.render('admin-create', { message: 'No user with this email or password was found.' })
     }
 
     // req.session.userid = userFromDb.id;
-    res.redirect('/cabdetail');
+    res.redirect('welcome');
 }
 
 module.exports.register = (req, res, next) => {
-    res.render('signup-create');
+    res.render('admin-create');
 }
 
 module.exports.registerPost = async (req, res, next) => {
@@ -33,7 +32,7 @@ module.exports.registerPost = async (req, res, next) => {
     });
 
     if (existingUser) {
-        return res.render('cabsignin', { message: 'Already registered.' });
+        return res.render('admin-login', { message: 'Already registered.' });
     }
     await User.create({
         firstName: firstname,
@@ -46,5 +45,5 @@ module.exports.registerPost = async (req, res, next) => {
        
     });
 
-    res.redirect('/cabsignin');
+    res.redirect('/admin-login');
 }

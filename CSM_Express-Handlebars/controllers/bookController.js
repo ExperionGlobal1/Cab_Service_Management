@@ -1,8 +1,17 @@
 
-const Cab = require('../models/cabBook');
+const Cab = require('../models/bookingdetail');
+// -------------admin control-----------------
+module.exports.adminindex = (req, res, next) => {
+    Cab.findAll().then(cabBook => {
+        res.render('adminbooking', {
+            data: cabBook,
+            //identity: req.identity.user
+        });
+    })
+}
 
 
-
+// -------------------------------------------------
 module.exports.index = (req, res, next) => {
     Cab.findAll().then(cabBook => {
         res.render('booking-index', {
@@ -22,11 +31,12 @@ module.exports.bookingPost = (req, res, next) => {
         pickup: req.body.pickup,
         destination: req.body.destination,
         dot: req.body.dot,
-        passenger: req.body.passenger,
-        mobile: req.body.mobile
+        time: req.body.time,
+        passenger: req.body.passenger
+       
     })
         .then(CabBookFromDb => {
-            res.redirect("/bookingdetail")
+            res.redirect("/payment")
         })
 
 }
@@ -47,14 +57,15 @@ module.exports.bookingUpdatePost = async (req, res, next) => {
             pickup: req.body.pickup,
             destination: req.body.destination,
             dot: req.body.dot,
-            passenger: req.body.passenger,
-            mobile: req.body.mobile
+            time: req.body.time,
+            passenger: req.body.passenger
+           
         },
         {
             where: { id: req.params.id }
         }
     )
-    res.redirect("/bookingdetail");
+    res.redirect("/adminbookingdetail");
 
 }
 
@@ -67,6 +78,6 @@ module.exports.bookingDelete = async (req, res, next) => {
                 id: id
             }
         });
-        res.redirect("/bookingdetail");
+        res.redirect("/adminbookingdetail");
     }
 }

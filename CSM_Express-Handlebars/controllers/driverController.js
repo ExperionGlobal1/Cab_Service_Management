@@ -1,5 +1,5 @@
 
-const Cab = require('../models/driver');
+const Cab = require('../models/driverdetail');
 
 
 
@@ -21,6 +21,7 @@ module.exports.createPost = (req, res, next) => {
     Cab.create({
         Name: req.body.name,
         Email: req.body.email,
+        Password: req.body.password,
         Mobile: req.body.mobile,
         Address: req.body.address,
         DOB: req.body.dob,
@@ -30,7 +31,7 @@ module.exports.createPost = (req, res, next) => {
 
     })
         .then(driverFromDb => {
-            res.redirect("/driverdetail")
+            res.redirect("/dlogin")
         })
 
 }
@@ -50,6 +51,7 @@ module.exports.updatePost = async (req, res, next) => {
         {
             Name: req.body.name,
             Email: req.body.email,
+            Password: req.body.password,
             Mobile: req.body.mobile,
             Address: req.body.address,
             DOB: req.body.dob,

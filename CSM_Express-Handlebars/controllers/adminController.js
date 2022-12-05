@@ -1,14 +1,26 @@
-const Cab = require('../models/userdetail');
+const Cab = require('../models/admindetail');
+// --------------------------------------------------
+module.exports.welcomeindex = (req, res, next) => {
+    Cab.findAll().then(admin => {
+        res.render('welcome', {
+            data: admin,
+            // identity: req.identity.user
+        });
+    })
+}
+
+
+// ----------------------------------------------
 module.exports.index = (req, res, next) => {
-    Cab.findAll().then(cabSignup => {
-        res.render('signup-index', {
-            data: cabSignup,
+    Cab.findAll().then(admin => {
+        res.render('admin-index', {
+            data: admin,
             // identity: req.identity.user
         });
     })
 }
 module.exports.create = (req, res, next) => {
-    res.render('signup-create');
+    res.render('admin-create');
 }
 
 module.exports.createPost = (req, res, next) => {
@@ -20,24 +32,24 @@ module.exports.createPost = (req, res, next) => {
         mobile: req.body.mobile,
         email: req.body.email,
         Password: req.body.Password
-       
+
     })
-        .then(cabSignupFromDb => {
-            res.redirect("/login")
+        .then(adminFromDb => {
+            res.redirect("/alogin")
         })
 
 }
 
 module.exports.update = async (req, res, next) => {
     Cab.findByPk(req.params.id)
-        .then(cabSignupFromDB => {
-            res.render('signup-update', {
-                data: cabSignupFromDB
+        .then(adminFromDB => {
+            res.render('admin-update', {
+                data: adminFromDB
             });
         });
 
 }
-module.exports.updatePost =async (req, res, next) => {
+module.exports.updatePost = async (req, res, next) => {
 
     await Cab.update(
         {
@@ -47,26 +59,25 @@ module.exports.updatePost =async (req, res, next) => {
             mobile: req.body.mobile,
             email: req.body.email,
             Password: req.body.Password
-            
+
         },
         {
             where: { id: req.params.id }
-           
         }
     )
-    res.redirect("/userdetail");
+    res.redirect("/admindetail");
 
 }
 
 module.exports.delete = async (req, res, next) => {
     let id = req.params.id;
-    let cabSignupFromDb = await Cab.findByPk(id);
-    if (cabSignupFromDb != null) {
+    let adminFromDb = await Cab.findByPk(id);
+    if (adminFromDb != null) {
         await Cab.destroy({
             where: {
                 id: id
             }
         });
-        res.redirect("/userdetail");
+        res.redirect("/admindetail");
     }
 }
