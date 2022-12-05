@@ -10,16 +10,15 @@
 
 <body>
 
-    {{>navbarhome}}
+   
 
     <div class="container">
 
-        {{!-- <a href="/create" class="btn btn-primary" style="text-decoration: none;"> + Add New User Details! </a>
-        --}}
+       
 
         <pre></pre>
         <table class="table table-striped mt-4">
-           <h1 style="text-align: center;"> User Details</h1>
+
             <tr>
                 <th>Id</th>
                 <th>FirstName</th>
@@ -41,8 +40,8 @@
                 <td>{{this.dataValues.Password}}</td>
 
                 <td>
-                    <a href="/update/ {{this.dataValues.id}}">Update</a>
-                    <a href="/delete/{{this.dataValues.id}}" class="text-danger"
+                    <a href="/adminupdate/ {{this.dataValues.id}}">Update</a>
+                    <a href="/admindelete/{{this.dataValues.id}}" class="text-danger"
                         onclick="return confirm('Are you sure you want to delete this')">Delete</a>
                 </td>
             </tr>

@@ -1,90 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+      {{>navbarhome}}
+</body>
+</html>
 <div class="container">
-    <h1 class="text-center" style="text-align: center;">Driver Details</h1>
+    <h1 class="text-center" style="text-align: center;">Register Here!</h1>
     <div class="row">
         <div class="col-sm-6 offset-sm-3">
-            <form method="post" style="text-align: center; color:white">
-                <div>
-                    <tr>
-                        <td><label for="name">Name</label></td>
-                        <td><input type="text" name="name" id="name" class="form-control"></td>
-                    </tr>
-                </div>
-                <br>
-                <div>
-                    <tr>
-                        <td><label for="email">Email</label></td>
-                        <td><input type="text" name="email" id="email" class="form-control"></td>
-                    </tr>
-                </div>
-                <br>
-                <div>
-                    <tr>
-                        <td>
-                            <label for="mobile">Mobile</label>
-                        </td>
-                        <td>
+            <form method="post" class="driver">
+                <div class="text1">
+                    <div>
+                        <tr>
+                            <td><label for="name">Name</label></td>
+                            <td><input type="text" name="name" id="name" placeholder="Enter Name" class="form-control"></td>
+                        </tr>
+                    </div>
+                    <br>
+                    <div>
+                        <tr>
+                            <td><label for="email">Email</label></td>
+                            <td><input type="text" name="email" id="email" placeholder="Enter email" class="form-control"></td>
+                        </tr>
+                    </div>
+                    <br>
+                    <div>
+                        <tr>
+                            <td>
+                                <label for="password">Password</label>
+                            </td>
+                            <td>
+                                <input type="password" name="password" id="password" placeholder="Enter password" class="form-control">
+                            </td>
+                        </tr>
+                    </div>
+                    <br>
+                    <div>
+                        <tr>
+                            <td>
+                                <label for="mobile">Mobile</label>
+                            </td>
+                            <td>
+                                <input type="text" name="mobile" id="mobile"  placeholder="Enter Mobile No" class="form-control">
+                            </td>
+                        </tr>
+                    </div>
+                    <br>
+                    <div>
+                        <tr>
+                            <td><label for="address">Address</label> </td>
+                            <td>
+                                <input type="text" name="address" id="address" placeholder="Enter Address" class="form-control">
+                            </td>
 
-                            <input type="text" name="mobile" id="mobile" class="form-control">
-                        </td>
-                    </tr>
-
-                </div>
-                <br>
-                <div>
-                    <tr>
-                        <td><label for="address">Address</label> </td>
-                        <td>
-                            <input type="text" name="address" id="address" class="form-control">
-                        </td>
-
-                    </tr>
+                        </tr>
 
 
-                </div>
-                <br>
-                <div>
-                    <tr><label for="experience">Experience</label> </td>
-                        <td>
-                        <td>
-                            <input type="text" name="exp" id="exp" class="form-control">
-                        </td>
-                    </tr>
-                </div>
-                <br>
-                <div>
-                    <tr>
-                        <td>
-                            <label for="dl">DL_NO</label>
-                        </td>
-                        <td>
-                            <input type="text" name="dl" id="dl" class="form-control">
-                        </td>
-                    </tr>
-                </div>
-                <br>
-                <div>
-                    <tr>
-                        <td>
-                            <label for="dob">DOB</label>
-                        </td>
-                        <td>
-                            <input type="date" name="dob" id="dob" class="form-control">
-                        </td>
-                    </tr>
-                </div>
-                <br>
-                <div>
-                    <tr>
-                        <td>
-                            <label for="ex_dl">Exp_Dl_Date</label>
-                        </td>
-                        <td>
-                            <input type="date" name="exp_dl" id="exp_dl" class="form-control">
-                        </td>
-                    </tr>
-                </div>
-                <div class="d-grid mt-4">
-                    <button class="btn btn-primary">Save</button>
+                    </div>
+                    <br>
+                    <div>
+                        <tr><label for="experience">Experience</label> </td>
+                            <td>
+                            <td>
+                                <input type="text" name="exp" id="exp" placeholder="How many experience you have?" class="form-control">
+                            </td>
+                        </tr>
+                    </div>
+                    <br>
+                    <div>
+                        <tr>
+                            <td>
+                                <label for="dl">DL_NO</label>
+                            </td>
+                            <td>
+                                <input type="text" name="dl" id="dl" placeholder="Enter DL No" class="form-control">
+                            </td>
+                        </tr>
+                    </div>
+                    <br>
+                    <div>
+                        <tr>
+                            <td>
+                                <label for="dob">DOB</label>
+                            </td>
+                            <td>
+                                <input type="date" name="dob" id="dob"  class="form-control">
+                            </td>
+                        </tr>
+                    </div>
+                    <br>
+                    <div>
+                        <tr>
+                            <td>
+                                <label for="ex_dl">Exp_Dl_Date</label>
+                            </td>
+                            <td>
+                                <input type="date" name="exp_dl" id="exp_dl"  class="form-control">
+                            </td>
+                        </tr>
+                    </div>
+                    <div class="d-grid mt-4">
+                        <button class="btn btn-primary">Register</a></button>
+                    
+                    </div>
                 </div>
             </form>
         </div>
