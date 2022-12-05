@@ -1,7 +1,12 @@
-const cabSignup= require('./cabSignup');
-const CabBook= require('./cabBook');
-const Driver_Details = require('./driver');
+const UserDetail= require('./userdetail');
+const BookingDetail= require('./bookingdetail');
+const DriverDetails = require('./driverdetail');
+const CabDetail = require('./cabdetail');
+const AdminDetail = require('./admindetail');
 
-cabSignup.sync({alter:true});
-CabBook.sync({alter:true});
-Driver_Details.sync({alter:true});
+
+UserDetail.sync({alter:true});
+BookingDetail.sync({alter:true});
+DriverDetails.sync({alter:true});
+CabDetail.sync({alter:true});
+AdminDetail.sync({alter:true});
