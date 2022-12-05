@@ -1,5 +1,10 @@
 
-const user = require('../models/cabSignup');
+const user = require('../models/userdetail');
+const driver = require('../models/driverdetail');
+const cab = require('../models/cabdetail');
+const booking = require('../models/bookingdetail');
+const admin = require('../models/admindetail');
+
 
 module.exports = async (req, res, next) => {
     req.identity = {
@@ -7,7 +12,7 @@ module.exports = async (req, res, next) => {
         user: null
     }
 
-    if(req.url == "/login" || req.url == "/register"){
+    if(req.url == "/login" || req.url == "/register" || req.url == '/'){
         return next();
     }
 
