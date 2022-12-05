@@ -1,10 +1,22 @@
 const express = require('express');
 const parser = require('body-parser');
+
 const homeRoute = require('./routes/home');
+
+const paymentRoute = require('./routes/payment');
+
 const signupRoute = require('./routes/signup');
-const signinRoute = require('./routes/signin');
+const signinRoute = require('./routes/Usersignin');
+
 const bookRoute = require('./routes/book');
+
 const driverRoute = require('./routes/driver');
+const driverlogin = require('./routes/driverlogin');
+
+const CabDetail = require('./routes/CabDetail');
+
+const AdminSignup = require('./routes/admin');
+const AdminLogin = require('./routes/adminlogin');
 
 
 const path = require('path');
@@ -29,14 +41,25 @@ app.use("/static", express.static(path.join(__dirname, 'static')));
 //     name: 'session',
 //     httpOnly: true,
 //     keys: ["asdghjhgsdahjsgdhjasd"],
-//     maxAge:  60 * 60 
+//     maxAge:  60 * 60 * 60 
 // }));
 // app.use(authMiddleware);
 
 app.use(homeRoute);
+
+app.use(paymentRoute);
+
 app.use(signupRoute);
 app.use(signinRoute);
+
 app.use(bookRoute);
+
 app.use(driverRoute);
+app.use(driverlogin);
+
+app.use(CabDetail);
+
+app.use(AdminSignup);
+app.use(AdminLogin);
 
 app.listen(80);
