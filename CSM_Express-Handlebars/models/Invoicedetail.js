@@ -3,7 +3,7 @@ const {DataTypes} = require('sequelize');
 
 
 
-const BookingDetail = sequelize.define('BookingDetail',{
+const InvoiceDetail = sequelize.define('InvoiceDetail',{
     id:{
         type:DataTypes.INTEGER,
         primaryKey:true,
@@ -20,6 +20,7 @@ const BookingDetail = sequelize.define('BookingDetail',{
         allowNull:null
 
     },
+   
     dot:{
         type:DataTypes.DATE,
         allowNull:null
@@ -32,13 +33,27 @@ const BookingDetail = sequelize.define('BookingDetail',{
     },
     passenger:{
         type:DataTypes.STRING(20),
-        allowNull:false
+        allowNull:null
        
+
+    },
+    model:{
+         type:DataTypes.STRING(20),
+         allowNull:null
+    },
+    price:{
+        type:DataTypes.FLOAT,
+        allowNull:null
+
+    },
+    alloted_Driver:{
+        type:DataTypes.STRING(30),
+        allowNull:null
 
     }
     
 
 });
 
-module.exports = BookingDetail;
+module.exports = InvoiceDetail;
 

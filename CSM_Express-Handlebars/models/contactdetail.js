@@ -1,44 +1,37 @@
 const sequelize = require('./db');
 const {DataTypes} = require('sequelize');
 
-
-
-const BookingDetail = sequelize.define('BookingDetail',{
+const ContactDetail = sequelize.define('ContactDetail',{
     id:{
         type:DataTypes.INTEGER,
         primaryKey:true,
         autoIncrement:true
 
     },
-    pickup:{
+    firstname:{
         type:DataTypes.STRING(15),
-        allowNull:null
+        allowNull:null,
         
     },
-    destination:{
+    lastname:{
         type:DataTypes.STRING(16),
         allowNull:null
 
     },
-    dot:{
-        type:DataTypes.DATE,
+    country:{
+        type:DataTypes.STRING(12),
         allowNull:null
-
+    
     },
-    time:{
-        type:DataTypes.TIME,
+    subject:{
+        type:DataTypes.STRING(100),
         allowNull:null
-
-    },
-    passenger:{
-        type:DataTypes.STRING(20),
-        allowNull:false
-       
 
     }
-    
+   
+   
 
 });
 
-module.exports = BookingDetail;
+module.exports = ContactDetail;
 
