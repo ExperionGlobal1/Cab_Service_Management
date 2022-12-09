@@ -1,5 +1,5 @@
 body {
-    /* background-image: url('/static/images/taxi3.jpg'); */
+   
     background-color: rgba(229, 219, 219, 0.442);
     margin: 0;
     padding: 0;
@@ -49,17 +49,18 @@ body {
     width: 600px;
     height: 1000px;
     margin-top: 10px;
+    margin-left: -8%;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
 .box2 {
-    font-size: x-large;
+    font-size: bold;
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-    background-color: rgb(82, 83, 95);
-    justify-content: center;
-    align-items: center;
+    /* background-color: rgb(82, 83, 95); */
+    /* justify-content: center; */
+    /* align-items: center; */
     width: 500px;
     height: 980px;
     margin-top: 30px;
@@ -67,7 +68,7 @@ body {
     padding: 0px 30px 0px;
     line-height: 40px;
 
-    /*trbl*/
+    
 
 }
 
@@ -166,8 +167,8 @@ input[type=text] {
 .row {
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
     font-size: large;
-    color: rgb(235, 227, 227);
-    margin-top: 330px;
+    color: rgb(19, 18, 18);
+    margin-top: 390px;
 
 }
 
@@ -191,7 +192,7 @@ input[type=text] {
 }
 
 .driver {
-    background-color: rgb(46, 46, 49);
+    /* background-color: rgb(46, 46, 49); */
     margin-left: 70px;
     height: 160vh;
     margin-top:-320px;
@@ -199,7 +200,7 @@ input[type=text] {
 
 .text1 {
     margin-left: 50px;
-    color: white;
+    color: rgb(19, 18, 18);
 
 
 }
