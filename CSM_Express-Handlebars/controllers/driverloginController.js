@@ -10,18 +10,33 @@ module.exports.loginPost = async (req, res, next) => {
     });
    
     if (userFromDb == null) {
-        return res.render('driver-create', { message: 'No user with this email or password was found.' })
+        return res.render('driverlogin', { message: 'No Driver with this email or password was found.' })
     }
 
-    // req.session.userid = userFromDb.id;
+    req.session.userId = userFromDb.dataValues.id;
+    req.session.role = 2;
+
     res.redirect('/bookingdetail');
 }
 
-module.exports.dregister = (req, res, next) => {
+module.exports.dlogout = async(req,res,next)=>{
+
+    req.identity.isAuthenticated = false;
+
+    req.identity.driver = null;
+    req.session.driverId = null;
+    req.session.role = null;
+    req.session=null
+    res.redirect('/');
+        
+
+}
+
+module.exports.register = (req, res, next) => {
     res.render('driver-create');
 }
 
-module.exports.dregisterPost = async (req, res, next) => {
+module.exports.registerPost = async (req, res, next) => {
     const { name,email,password,mobile,address,exp,dl,dob,exp_dl } = req.body;
 
     let existingUser = await User.findOne({

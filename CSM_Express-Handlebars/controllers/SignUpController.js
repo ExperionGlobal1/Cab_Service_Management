@@ -1,9 +1,10 @@
 const Cab = require('../models/userdetail');
+
 module.exports.index = (req, res, next) => {
     Cab.findAll().then(cabSignup => {
         res.render('signup-index', {
             data: cabSignup,
-            // identity: req.identity.user
+            identity: req.identity.user
         });
     })
 }

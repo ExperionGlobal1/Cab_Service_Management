@@ -1,22 +1,24 @@
 
 const Cab = require('../models/bookingdetail');
+const sequelize=require('../models/db')
+
 // -------------admin control-----------------
 module.exports.adminindex = (req, res, next) => {
     Cab.findAll().then(cabBook => {
         res.render('adminbooking', {
             data: cabBook,
-            //identity: req.identity.user
+            identity: req.identity.user
         });
     })
 }
 
-
 // -------------------------------------------------
-module.exports.index = (req, res, next) => {
-    Cab.findAll().then(cabBook => {
-        res.render('booking-index', {
+module.exports.index = async(req, res, next) => {
+   
+    Cab.findAll({}).then(cabBook => {
+        return res.render('booking-index', {
             data: cabBook,
-            //identity: req.identity.user
+            identity: req.identity.user
         });
     })
 }
@@ -36,7 +38,10 @@ module.exports.bookingPost = (req, res, next) => {
        
     })
         .then(CabBookFromDb => {
-            res.redirect("/payment")
+            
+            sequelize.query('SELECT * FROM cabmvc.bookingdetails ORDER BY id DESC LIMIT 1').then(data=>{data=data.pop();res.redirect('/paynow/'+data[0].id)})
+
+            
         })
 
 }

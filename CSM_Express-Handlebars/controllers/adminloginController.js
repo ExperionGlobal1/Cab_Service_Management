@@ -11,11 +11,29 @@ module.exports.loginPost = async (req, res, next) => {
     });
     
     if (userFromDb == null) {
-        return res.render('admin-create', { message: 'No user with this email or password was found.' })
+        return res.render('admin-login', { message: 'No admin with this email or password was found.' })
     }
 
-    // req.session.userid = userFromDb.id;
-    res.redirect('welcome');
+    req.session.adminId = userFromDb.dataValues.id;
+    req.session.role = 3;
+
+    res.redirect('/welcome');
+}
+
+module.exports.alogout = async(req,res,next)=>{
+
+    req.identity.isAuthenticated = false;
+
+    req.identity.admin = null;
+    req.session.adminId = null;
+    req.session.role = null;
+    req.session=null
+    res.redirect('/');
+  
+  
+    
+        
+
 }
 
 module.exports.register = (req, res, next) => {

@@ -1,13 +1,10 @@
 
 const Cab = require('../models/driverdetail');
-
-
-
 module.exports.index = (req, res, next) => {
     Cab.findAll().then(driver => {
         res.render('driver-index', {
             data: driver,
-            // identity: req.identity.user
+            identity: req.identity.user
         });
     })
 }

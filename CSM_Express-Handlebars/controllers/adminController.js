@@ -4,7 +4,7 @@ module.exports.welcomeindex = (req, res, next) => {
     Cab.findAll().then(admin => {
         res.render('welcome', {
             data: admin,
-            // identity: req.identity.user
+            identity:req.identity.user
         });
     })
 }
@@ -15,7 +15,7 @@ module.exports.index = (req, res, next) => {
     Cab.findAll().then(admin => {
         res.render('admin-index', {
             data: admin,
-            // identity: req.identity.user
+            identity: req.identity.user
         });
     })
 }

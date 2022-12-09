@@ -12,11 +12,22 @@ module.exports.loginPost = async (req, res, next) => {
     
    
     if (userFromDb == null) {
-        return res.render('signup-create', { message: 'No user with this email or password was found.' })
+        return res.render('cabsignin', { message: 'No user with this email or password was found.' });
     }
 
-    // req.session.userid = userFromDb.id;
+    req.session.userId = userFromDb.dataValues.id;
+    req.session.role = 1;
     res.redirect('/cabdetail');
+}
+module.exports.logout = async(req,res,next)=>{
+    req.identity.isAuthenticated = false;
+    req.identity.user = null;
+    req.session.userId = null;
+    req.session.role = null;
+    req.session=null
+    res.redirect('/');
+        
+
 }
 
 module.exports.register = (req, res, next) => {

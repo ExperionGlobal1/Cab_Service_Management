@@ -6,7 +6,7 @@ module.exports.cabbookindex = (req, res, next) => {
     Cab.findAll().then(cabBook => {
         res.render('cabbook-index', {
             data: cabBook,
-            //identity: req.identity.user
+            // identity: req.identity.user
         });
     })
 }
@@ -63,7 +63,7 @@ module.exports.cabdelete = async (req, res, next) => {
                 Cab_Id: Cab_Id
             }
         });
-        res.redirect("/cabDelete");
+        res.redirect("/cabbookindex");
     }
 }
 
