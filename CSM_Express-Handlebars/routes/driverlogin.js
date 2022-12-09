@@ -12,6 +12,8 @@ router.post('/dlogin', cc.loginPost);
 router.get('/dregister', sign.create);
 router.post('/dregisterpost', sign.createPost);
 
+router.get('/dlogout', cc.dlogout);
+
 
 module.exports = router;
 
