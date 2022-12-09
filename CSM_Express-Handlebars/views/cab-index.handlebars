@@ -6,6 +6,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+        body {
+            background-color: rgb(242, 240, 235);
+            background-size: 100% 100%;
+        }
+    </style>
 </head>
 
 <body>
@@ -13,11 +19,11 @@
     {{>navbar1}}
 
     <div class="text">
-        <h1 class="text-center" style="text-align: center;">Cab Details!</h1>
+        <h1 class="text-center" style="text-align: center;">Available Cab Here!</h1>
     </div>
 
     <div class="container">
-        {{!-- <a href="/cab" class="btn btn-primary">+Add New Cab Deatails! </a> --}}
+
         <table class="table table-striped mt-4">
             <tr>
                 <th>Cab_Id</th>
@@ -36,16 +42,17 @@
                 <td>{{this.dataValues.driver_id}}</td>
 
                 <td>
-                    <a href="/booking/{{this.dataValues.id}}">Book</a> |
-                    {{!-- <a href="/driverDelete/{{this.dataValues.id}}" class="text-danger"
-                        onclick="return confirm('Are you sure you want to delete this')">Delete</a> --}}
+                    <a href="/booking/{{this.dataValues.id}}"
+                        style="text-decoration:none;"><button
+                            style="background-color:rgb(10, 164, 69); border-radius:5px;color:rgb(240, 232, 232);display:flex;">Book</button></a>
+
                 </td>
             </tr>
             {{/each}}
         </table>
-        <p class="text-end">You are logged in as:
-            <b>{{identity.firstName}} {{identity.lastName}}</b>
-        </p>
+        {{!-- <p class="text-end">You are logged in as:
+            <b>{{identity.firstname}} {{identity.lastname}}</b>
+        </p> --}}
     </div>
 </body>
 

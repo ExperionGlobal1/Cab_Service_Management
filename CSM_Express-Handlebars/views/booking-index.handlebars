@@ -1,59 +1,52 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    
 </head>
+
 <body>
-      {{>navbar2}}
+    {{>navbar2}}
+
+    <div class="text">
+        <h1 class="text-center" style="text-align: center;">User Booked </h1>
+    </div>
+    <div class="container">
+        <pre></pre>
+        <table class="table table-striped mt-4">
+
+            <tr>
+                <th>Id</th>
+                <th>Pickup</th>
+                <th>Destination</th>
+                <th>Date Of Travelling</th>
+                <th>Time Of Travelling</th>
+                <th>No of Passenger</th>
+            </tr>
+            {{#each data}}
+            <tr>
+                <td>{{this.dataValues.id}}</td>
+                <td>{{this.dataValues.pickup}}</td>
+                <td>{{this.dataValues.destination}}</td>
+                <td>{{this.dataValues.dot}}</td>
+                <td>{{this.dataValues.time}}</td>
+                <td>{{this.dataValues.passenger}}</td>
+
+                <td >
+                    <button style="background-color:green; border-radius:10px ;">Accept</button>
+                    <button style="background-color: yellow; border-radius:10px ;"><a href="/" style="text-decoration:none ;">Reject</a></button>
+                </td>
+            </tr>
+            {{/each}}
+        </table>
+        {{!-- <p class="text-end">You are Signin in as:
+            <b>{{identity.firstName}} {{identity.lastName}}</b>
+        </p> --}}
+    </div>
 </body>
+
 </html>
-
-<div class="text">
-    <h1 class="text-center" style="text-align: center;">User Booked </h1>
-</div>
-<div class="container">
-
-    {{!-- <a href="/booking" class="btn btn-primary" style="text-decoration: none;"> + Add New Booking Details! </a> --}}
-    <pre></pre>
-    <table class="table table-striped mt-4">
-        {{!-- style="color:rgb(217, 226, 230) ;" --}}
-
-        {{!-- style="color:rgb(244, 11, 11) ;" --}}
-        <tr>
-            <th>Id</th>
-            <th>Pickup</th>
-            <th>Destination</th>
-            <th>Date Of Travelling</th>
-            <th>Time Of Travelling</th>
-            <th>No of Passenger</th>
-            {{!-- <th>Mobile </th> --}}
-
-        </tr>
-        {{#each data}}
-        <tr>
-            <td>{{this.dataValues.id}}</td>
-            <td>{{this.dataValues.pickup}}</td>
-            <td>{{this.dataValues.destination}}</td>
-            <td>{{this.dataValues.dot}}</td>
-            <td>{{this.dataValues.time}}</td>
-            <td>{{this.dataValues.passenger}}</td>
-            {{!-- <td>{{this.dataValues.mobile}}</td> --}}
-            <td>
-                <button style="background-color:green ;">Booking Accept</button>
-                <button style="background-color: red;">Reject</button>
-                
-                {{!-- <a href="{{this.dataValues.id}}">Booking Accept</a> |
-                <a href="{{this.dataValues.id}}" class="text-danger"
-                    onclick="return confirm('Are you sure you want to delete this')">Reject</a> --}}
-            </td>
-        </tr>
-        {{/each}}
-    </table>
-    <p class="text-end">You are Signin in as:
-        {{!-- style="color:rgb(217, 226, 230) ;" --}}
-        <b>{{identity.firstName}} {{identity.lastName}}</b>
-    </p>
-</div>
